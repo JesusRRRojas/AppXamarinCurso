@@ -1,4 +1,5 @@
-﻿using ProyectoAPI.Entities.Models;
+﻿using ProyectoAPI.Data;
+using ProyectoAPI.Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

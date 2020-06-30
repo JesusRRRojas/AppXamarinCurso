@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using ProyectoAPI.Entities.Models;
 
-namespace ProyectoAPI.Entities.Models
+namespace ProyectoAPI.Data
 {
     public partial class dbaplicationContext : DbContext
     {
@@ -20,6 +21,8 @@ namespace ProyectoAPI.Entities.Models
         public virtual DbSet<Restaurant> Restaurant { get; set; }
         public virtual DbSet<RestaurantCategoria> RestaurantCategoria { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+
+        public virtual DbSet<Calificacion> Calificacion { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -114,6 +117,20 @@ namespace ProyectoAPI.Entities.Models
                     .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Calificacion>(entity =>
+            {
+                entity.HasKey(e => new { e.IdRestaurant, e.IdUsuario })
+                    .HasName("PK__Califica__54AB46EA9E47E289");
+
+                entity.Property(e => e.Comentario)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.Property(e => e.Puntaje).HasColumnType("decimal(18, 0)");
             });
 
             OnModelCreatingPartial(modelBuilder);

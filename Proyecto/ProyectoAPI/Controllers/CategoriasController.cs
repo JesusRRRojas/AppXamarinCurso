@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ProyectoAPI.Data;
 using ProyectoAPI.Entities.Models;
 using ProyectoAPI.Services;
 
