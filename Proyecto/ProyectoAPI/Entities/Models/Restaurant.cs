@@ -16,6 +16,8 @@ namespace ProyectoAPI.Entities.Models
         public string Descripcion { get; set; }
         public string Direccion { get; set; }
 
+        public string Imagen { get; set; }
+
         public virtual ICollection<Favorito> Favorito { get; set; }
         public virtual ICollection<RestaurantCategoria> RestaurantCategoria { get; set; }
     }

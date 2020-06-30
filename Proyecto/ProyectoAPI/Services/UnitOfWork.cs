@@ -16,6 +16,7 @@ namespace ProyectoAPI.Services
         private BaseRepository<Restaurant> _restaurant;
         private BaseRepository<RestaurantCategoria> _restaurantCategoria;
         private BaseRepository<Usuario> _usuario;
+        private BaseRepository<Calificacion> _calificacion;
 
         public UnitOfWork(dbaplicationContext context)
         {
@@ -56,6 +57,13 @@ namespace ProyectoAPI.Services
             get
             {
                 return _usuario ?? (_usuario = new BaseRepository<Usuario>(_context));
+            }
+        }
+        public IRepository<Calificacion> Calificaciones
+        {
+            get
+            {
+                return _calificacion ?? (_calificacion = new BaseRepository<Calificacion>(_context));
             }
         }
         public void Save()
