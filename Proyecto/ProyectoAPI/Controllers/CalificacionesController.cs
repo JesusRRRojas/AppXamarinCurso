@@ -18,12 +18,13 @@ namespace ProyectoAPI.Controllers
         private UnitOfWork _unitOfWork = new UnitOfWork(new dbaplicationContext());
 
 
-        [HttpGet("id")]
-        public IActionResult GetById([FromHeader] int id)
+        [HttpGet]
+        public IActionResult GetById([FromBody] Calificar calificar)
         {
             try
             {
-                var calres = _unitOfWork.Calificaciones.Get(x => x.IdRestaurant == id).ToList();
+                var calres = _unitOfWork.Calificaciones.Get(x => x.IdRestaurant == calificar.IdRestaurant).ToList();
+                //var calres = _unitOfWork.Calificaciones.Get(x => x.IdRestaurant == Id).ToList();
                 var ListaCalificaciones = new List<DatosCalificacion>();
                 foreach (var item in calres)
                 {

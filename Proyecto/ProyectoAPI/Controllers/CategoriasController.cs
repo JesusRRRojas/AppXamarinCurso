@@ -25,7 +25,7 @@ namespace ProyectoAPI.Controllers
             if (categorias != null)
             {
                 var res = Newtonsoft.Json.JsonConvert.SerializeObject(categorias);
-                return Ok(res);
+                return Ok(categorias);
             }
             else
             {
