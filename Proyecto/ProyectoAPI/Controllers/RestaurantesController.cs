@@ -46,7 +46,7 @@ namespace ProyectoAPI.Controllers
                         DireccionRestaurant = item.Direccion,
                         Categorias = ObtenerListaCategorias(item.IdRestaurant),
                         FavoritoUsuario = BuscarFavorito(_favoritousuario, item.IdRestaurant),
-                        imagenRestaurant = item.Imagen,
+                        ImagenRestaurant = item.Imagen,
                         PromedioCalificacion = _valoracion.PuntajePromedio,
                         TotalComentario = _valoracion.TotalCalificacion
 
