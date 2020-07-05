@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AplicacionMovil.PageStack">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Fill">
+            <StackLayout VerticalOptions="" Orientation="Horizontal">
+                <Button HorizontalOptions="FillAndExpand" BackgroundColor="CadetBlue"/>
+                <Button HorizontalOptions="FillAndExpand" BackgroundColor="IndianRed"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                <Button HorizontalOptions="FillAndExpand" BackgroundColor="IndianRed"/>
+                <Button HorizontalOptions="FillAndExpand" BackgroundColor="CadetBlue"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand" >
+                <Button VerticalOptions="FillAndExpand" BackgroundColor="HotPink"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
