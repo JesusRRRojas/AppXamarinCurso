@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Newtonsoft.Json;
 using ProyectoAPI.Data;
 using ProyectoAPI.Entities.DTOs;
@@ -21,9 +22,8 @@ namespace ProyectoAPI.Controllers
         //[HttpGet("idUsuario")]
         //public IActionResult GetAllRestaurant(int idUsuario)
         [HttpGet()]
-        public IActionResult GetAllRestaurant()
+        public IActionResult GetAllRestaurant(int id)
         {
-            int idUsuario = 0;
             try
             {
                 var _listarestaurantes = new List<ListaRestaurantes>();
@@ -32,11 +32,11 @@ namespace ProyectoAPI.Controllers
                 var _listafavoritousaurio = new List<Favorito>();
 
                 _restaurantes = ObtenerRestaurantes();
-                _listafavoritousaurio = ObtenerFavoritos(idUsuario);
+                _listafavoritousaurio = ObtenerFavoritos(id);
 
                 foreach (var item in _restaurantes)
                 {
-                    var _favoritousuario = ObtenerFavoritos(idUsuario);
+                    var _favoritousuario = ObtenerFavoritos(id);
                     var _valoracion = ObtenerValoracionRestaurant(item.IdRestaurant);
                     _listarestaurantes.Add(new ListaRestaurantes()
                     {
@@ -65,6 +65,67 @@ namespace ProyectoAPI.Controllers
             }
 
         }
+
+        [HttpPost]
+        public IActionResult PostRestaurant(DatosRestaurant model)
+        {
+            try
+            {
+                Restaurant res = new Restaurant()
+                {
+                    Descripcion = model.DescripcionRestaurant,
+                    Direccion = model.DireccionRestaurant,
+                    Imagen = model.ImagenRestaurant,
+                    Nombre = model.NombreRestaurant
+                };
+
+                _unitOfWork.Restaurantes.Insert(res);
+                _unitOfWork.Save();
+
+                return Ok("Restaurant agregado");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error {ex}");
+            }
+
+
+        }
+
+        [HttpPost]
+        public IActionResult UpdateRestaurant(DatosRestaurant model)
+        {
+            try
+            {
+
+                var resOld = _unitOfWork.Restaurantes.GetById(model.IdRestaurant);
+                if (resOld != null)
+                {
+                    resOld = new Restaurant()
+                    {
+                        IdRestaurant = model.IdRestaurant,
+                        Descripcion = model.DescripcionRestaurant,
+                        Direccion = model.DireccionRestaurant,
+                        Imagen = model.ImagenRestaurant,
+                        Nombre = model.NombreRestaurant
+                    };
+                    _unitOfWork.Restaurantes.Update(resOld);
+                    _unitOfWork.Save();
+
+                    return Ok("Restaurant modificado");
+
+                }
+                return BadRequest("No se ha encontrado ");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error {ex}");
+            }
+
+
+        }
+
+
 
         private ValoracionRestaurant ObtenerValoracionRestaurant(int idRestaurant)
         {

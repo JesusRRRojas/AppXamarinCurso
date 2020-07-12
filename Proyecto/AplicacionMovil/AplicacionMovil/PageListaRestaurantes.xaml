@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AplicacionMovil.PageListaRestaurantes">
+    <ContentPage.Content >
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.RowSpan="2" Grid.Column="0" Source="C:\Users\Jesus\source\repos\CursoXamarinAPI\Proyecto\AplicacionMovil\AplicacionMovil.Android\Resources\drawable\Burger.jpg" />
+            
+            <Label Grid.Row="0" Grid.Column="1" Text="Nombre de restaurant" 
+                   FontSize="Title" FontAttributes="Bold" TextColor="Black" />
+            
+            <Label Grid.Row="1" Grid.Column="1" Text="Descripción" 
+                   FontSize="Subtitle" FontAttributes="Bold" TextColor="Black" />
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

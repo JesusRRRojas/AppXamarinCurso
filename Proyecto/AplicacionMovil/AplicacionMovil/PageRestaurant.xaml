@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AplicacionMovil.PageRestaurant">
+    <ContentPage.Content>
+        <Grid  Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalTextAlignment="Center" Text="Formulario de Restaurant" Margin="0,0,0,40" FontSize="Title" FontAttributes="Bold" TextColor="Black" />
+
+            <Label Grid.Row="1" Grid.Column="0" Text="Nombre" VerticalTextAlignment="Center" FontSize="Subtitle" FontAttributes="Bold" TextColor="Black"/>
+            <Entry Grid.Row="1" Grid.Column="1" Text=""/>
+
+            <Label Grid.Row="2" Grid.Column="0" Text="Descripción" VerticalTextAlignment="Center" FontSize="Subtitle" FontAttributes="Bold" TextColor="Black"/>
+            <Entry Grid.Row="2" Grid.Column="1" />
+
+            <Label Grid.Row="3" Grid.Column="0" Text="Dirección" VerticalTextAlignment="Center" FontSize="Subtitle" FontAttributes="Bold" TextColor="Black"/>
+            <Entry Grid.Row="3" Grid.Column="1" />
+
+            <Label Grid.Row="4" Grid.Column="0" Text="Imagen" VerticalTextAlignment="Center" FontSize="Subtitle" FontAttributes="Bold" TextColor="Black"/>
+            <Image Grid.Row="4" Grid.Column="1" Source="C:\Users\Jesus\source\repos\CursoXamarinAPI\Proyecto\AplicacionMovil\AplicacionMovil.Android\Resources\drawable\Burger.jpg" />
+
+            <Button Grid.Row="5" Grid.Column="1" Text="Seleccionar Imagen"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -7,7 +7,7 @@
              x:Class="AplicacionMovil.PageStack">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Fill">
-            <StackLayout VerticalOptions="" Orientation="Horizontal">
+            <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
                 <Button HorizontalOptions="FillAndExpand" BackgroundColor="CadetBlue"/>
                 <Button HorizontalOptions="FillAndExpand" BackgroundColor="IndianRed"/>
             </StackLayout>
@@ -21,3 +21,4 @@
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+    
